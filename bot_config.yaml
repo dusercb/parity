@@ -1,0 +1,44 @@
+# Illustrative configuration for the public snapshot.
+# Sizing and scanner values are placeholders, not the ones I run. signal_core is
+# imported from the Hindsight backtester checked out next to this repo; set
+# signal.pin to a backtester commit SHA to make the bot refuse any other.
+# trading.require_paper_account keeps it from placing an order on a live account.
+
+signal:
+  backtester_path: ../hindsight/ibkr_premarket_backtester
+  pin: UNPINNED-DEV
+gateway:
+  host: 127.0.0.1
+  port: 4002
+  client_id: 21
+trading:
+  enabled: true
+  require_paper_account: true
+  sizing: config
+  fixed_notional: 1000
+  max_open_positions: null
+  kill_file: STOP
+  entry_ttl_s: 30
+  target_confirm_s: 20
+  exit_slippage_cents: 0.1
+  max_tick_slots: 3
+discovery:
+  scan_code: TOP_PERC_GAIN
+  instrument: STK
+  location: STK.US.MAJOR
+  change_perc_above: 10.0
+  price_min: 2.0
+  price_max: 20
+  scanner_rows: 50
+  poll_seconds: 30
+  max_streamed: 30
+  max_promote_per_poll: 10
+  max_demote_per_poll: 3
+  max_snapshots: 60
+session:
+  start_et: "04:00"
+  end_et: "09:35"
+recording:
+  dir: recordings
+state:
+  dir: state

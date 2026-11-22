@@ -1,0 +1,26 @@
+# Virtual env
+.venv/
+
+# Python artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Runtime state (never in git: session recordings, durable position state, logs)
+recordings/
+state/
+logs/
+
+# Credentials / env -- IBKR + SMTP secrets live ONLY in the VPS's ACL-locked
+# config (PORTING_TO_LIVE.md §5); nothing secret is ever tracked here.
+.env
+*.ini.secret
+# Local, machine-specific config that is never committed -- includes ALL email
+# addresses (sender AND recipients) and SMTP host/creds. Copy the committed
+# *.example.yaml templates and fill these in on the box.
+*.local.yaml
+
+# Claude Code local session state
+.claude/
+STOP

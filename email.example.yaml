@@ -1,0 +1,29 @@
+# End-of-session email summary -- TEMPLATE.
+#
+# Copy this file to `email.local.yaml` (same directory) and fill it in. That file
+# is GITIGNORED (*.local.yaml), so your real addresses and SMTP host never get
+# committed. The bot reads email.local.yaml if present; otherwise the summary is
+# simply off.
+#
+# The SMTP PASSWORD is NEVER stored in any file -- it is read from the environment
+# variable named by password_env. Set it on the box, e.g. (PowerShell):
+#     $env:LIVE_BOT_SMTP_PASSWORD = "your-app-password"
+# For Gmail / Outlook personal accounts this must be an APP PASSWORD, not your
+# normal login password.
+
+email:
+  enabled: true
+
+  # --- outgoing (the SENDING account) ---
+  smtp_host: "smtp.gmail.com"          # e.g. smtp.gmail.com / smtp-mail.outlook.com
+  smtp_port: 587
+  use_starttls: true
+  username: "you@example.com"       # the account that logs in and sends
+  from: "you@example.com"
+  password_env: "LIVE_BOT_SMTP_PASSWORD"
+
+  # --- recipients (one or many) ---
+  # Add as many addresses as you like; every one gets the daily summary.
+  to:
+    - "you@example.com"
+    - "you@example.com"

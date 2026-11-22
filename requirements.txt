@@ -1,0 +1,9 @@
+# Observer/bot runtime (the VPS installs this; the dev machine may instead run
+# inside the backtester's venv -- live_bot/ibcompat.py falls back to ib_insync
+# there). signal_core itself comes from the PINNED backtester repo, attached by
+# path (bot_config.yaml signal.backtester_path), not from PyPI.
+ib_async>=1.0.0
+pandas>=2.2.0
+numpy>=1.26.0
+PyYAML>=6.0.1
+yfinance==1.5.1
